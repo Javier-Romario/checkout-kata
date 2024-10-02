@@ -1,6 +1,7 @@
-import { expect, test, describe } from 'vitest';
+import { expect, test, describe, it } from 'vitest';
 
-import { ICheckout } from '../composables/ICheckout';
+import { useCheckout } from '../composables/useCheckout';
+import { priceList } from './fixtures';
 
 describe('Checkout', () => {
   test('Tests are working', () => {
@@ -11,7 +12,12 @@ describe('Checkout', () => {
     expect(typeof ICheckout).toMatch("function");
   })
 
-  // it('', () => {
-  //
-  // });
+  it('Prices Items Correctly', () => {
+    let items = ['A', 'A', 'C', 'D', 'B'];
+    let { price } = useCheckout(items, priceList);
+  });
+
+  it('returns a price', () => {
+
+  });
 })
